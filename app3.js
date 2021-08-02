@@ -119,4 +119,37 @@ function checkIncrement(sortedArray){
     return isIncrementingSequence;
 }
 
-runIncrementingSequence();
+//runIncrementingSequence();
+
+
+
+
+//Problem 4 - Positive and Negative Number Count
+
+function runPosAndNegCount(){
+    alert("Please enter positive and negative numbers into array.");
+    let userArray = getUserArray();
+    let countArray = countPosAndNeg(userArray);
+    console.log(countArray);
+}
+
+function countPosAndNeg(userArray){
+    let posNums = 0;
+    let negNums = 0;
+    let countOfNums = [];
+
+    for(let i = 0; i < userArray.length; i++){
+        if(userArray[i] < 0){
+            posNums++;
+        }else if(userArray[i] > 0){
+            negNums++;
+        }
+    }
+
+    countOfNums.push(posNums);
+    countOfNums.push(negNums);
+
+    return countOfNums;
+}
+
+runPosAndNegCount();
