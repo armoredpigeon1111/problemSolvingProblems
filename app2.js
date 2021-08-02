@@ -9,14 +9,44 @@
 
 function runHappyNumbers(){
     let userNum = prompt("Enter a positive number to see if it is happy: ");
-    
+    let sumOfNumbers = calculateNum(userNum);
+    let isHappyNum = checkForHappyNum(sumOfNumbers, userNum);
+    if(isHappyNum){
+        console.log(`${userNum} is a happy number!`);
+    }else{
+        console.log(`${userNum} is NOT a happy number.`);
+    }
+}
+
+function calculateNum(userNum){
+    let sumOfSquares = 0;
+    let numHolder = userNum;
+
+    while(sumOfSquares != userNum && sumOfSquares != 1){
+        for(let i = 0; i < userNum.length; i++){
+            sumOfSquares += Math.pow(userNum[i], 2);
+        }
+        numHolder = sumOfSquares;
+    }
+
+    return sumOfSquares;
+
+}
+
+function checkForHappyNum(sumOfNum, userNum){
+    if(sumOfNum === 1){
+        return true;
+    }else if(sumOfNum === userNum){
+        return false;
+    }else{
+        calculateNum(String(sumOfNum));
+    }
 }
 
 
 
 
-
-//runHappyNumbers();
+runHappyNumbers();
 
 
 
@@ -96,4 +126,4 @@ function printFibonacciSequence(fibonacciArray, startNum){      //Prints the seq
 
 }
 
-runFibonacci();
+//runFibonacci();
