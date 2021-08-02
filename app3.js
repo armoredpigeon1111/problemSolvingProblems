@@ -5,11 +5,12 @@
 //Problem 1
 
 function runTargetNum(){
-    let arrayOfNums = [5, 17, 77, 50];
-    let targetSum = 55;
+    let arrayOfNums = getUserArray();
+    let targetSum = parseInt(prompt("What is the target sum?"));
     let setOfNums = sumNumsInArray(arrayOfNums, targetSum);
     console.log(`${setOfNums[0]} + ${setOfNums[1]} = ${targetSum}`);
 }
+
 
 function sumNumsInArray(numArray, target){
     let qualifyingNums = [];
@@ -22,6 +23,17 @@ function sumNumsInArray(numArray, target){
             }
         }
     }
+}
+
+
+function getUserArray(){
+    let lengthOfArray = prompt("How many array elements are you adding?");
+    let userArray = [];
+    for(let i = 0; i < lengthOfArray; i++){
+        userArray.push(parseInt(prompt("Enter a number: ")));
+    }
+
+    return userArray;
 }
 
 runTargetNum();
