@@ -256,7 +256,7 @@ function emailIsValid(validUsername, validDomain, userEmail){
 }
 
 
-runEmailValidation();
+//runEmailValidation();
 
 
 
@@ -304,11 +304,51 @@ function getLetterNum (enteredString, alphaArray){
 //PROBLEM 8 - briefcase lock ***INCOMPLETE
 
 function runBriefcaseLock(){
-    let currentLock = 3893;
-    let targetLock = 5296;
-
+    let currentLock = "3893";
+    let targetLock = "5296";
+    let numberTurnsToTarget = crackLock(currentLock, targetLock);
+    console.log(numberTurnsToTarget);
 }
 
+
+function crackLock(currentLock, targetLock){
+    let upNum = 0;
+    let downNum = 0;
+    let numOfTurns = 0;
+
+    for(let i = 0; i < currentLock.length; i++){
+
+        if(currentLock[i] < targetLock[i]){
+            upNum = Math.abs(parseInt(currentLock[i]) - parseInt(targetLock[i]));
+            downNum = Math.abs(parseInt(currentLock[i]) + 10 - parseInt(targetLock[i])); 
+
+            if(upNum < downNum){
+                numOfTurns += upNum;
+            }else{
+                numOfTurns += downNum;
+            }
+
+        }else{
+            upNum = Math.abs(parseInt(currentLock[i]) - (10 + parseInt(targetLock[i])));
+            downNum = Math.abs(parseInt(currentLock[i]) - parseInt(targetLock[i]));
+
+            if(upNum < downNum){
+                numOfTurns += upNum;
+            }else{
+                numOfTurns += downNum;
+            }
+        }
+
+        
+    
+    }
+
+
+
+    return numOfTurns;
+}
+
+runBriefcaseLock();
 
 
 
