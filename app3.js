@@ -12,6 +12,7 @@ function runTargetNum(){
 }
 
 
+//adds numbers through loop to see if they equal target
 function sumNumsInArray(numArray, target){
     let qualifyingNums = [];
 
@@ -26,6 +27,7 @@ function sumNumsInArray(numArray, target){
 }
 
 
+//Prompts user for number of array elements and their values
 function getUserArray(){
     let lengthOfArray = prompt("How many array elements are you adding?");
     let userArray = [];
@@ -54,6 +56,7 @@ function runPalindromeChecker(){
 }
 
 
+//reverses string for comparison
 function reverseString(enteredString){
     let reversedString = "";
 
@@ -65,6 +68,7 @@ function reverseString(enteredString){
 }
 
 
+//Checks if string is palindrome
 function checkPalindrome(userString, reversedString){
     let isPalindrome = true;
 
@@ -133,6 +137,7 @@ function runPosAndNegCount(){
     console.log(countArray);
 }
 
+
 function countPosAndNeg(userArray){
     let posNums = 0;
     let negNums = 0;
@@ -152,4 +157,36 @@ function countPosAndNeg(userArray){
     return countOfNums;
 }
 
-runPosAndNegCount();
+//runPosAndNegCount();
+
+
+
+
+
+//Problem 5 - String of Numbers, return Lowest and Highest
+
+
+function runLowestHighest(){
+    let numString = prompt("Enter numbers separated by spaces: ");
+    let numArray = parseArray(numString);
+    let sortedNumArray = sortArray(numArray);       //function in previous problem
+    let highestAndLowestNums = getHighestAndLowestNums(sortedNumArray);
+    console.log(highestAndLowestNums);
+}
+
+
+//turns string into array
+function parseArray(numberString){      
+    let numberArray = numberString.split(" ");
+    return numberArray;
+}
+
+
+//gets first and last index of sorted array
+function getHighestAndLowestNums(sortedNumberArray){
+    let highestAndLowestArray = [sortedNumberArray[0], sortedNumberArray[sortedNumberArray.length-1]];
+    return highestAndLowestArray;
+}
+
+
+runLowestHighest();
