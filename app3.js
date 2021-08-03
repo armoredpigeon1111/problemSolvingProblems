@@ -1,10 +1,13 @@
 "use strict"
 
 //Problem Solving Problems Part 3
+//Author: Richard Fleming
+
 
 //Problem 1
 
 function runTargetNum(){
+    console.log("PROBLEM 1: Two array numbers that equal target"); //printing title to console
     let arrayOfNums = getUserArray();
     let targetSum = parseInt(prompt("What is the target sum?"));
     let setOfNums = sumNumsInArray(arrayOfNums, targetSum);
@@ -45,7 +48,7 @@ function getUserArray(){
 //PROBLEM 2 - Palindrome
 
 function runPalindromeChecker(){
-    console.log("PROBLEM 4: Palindrome Checker."); //printing title to console
+    console.log("PROBLEM 2: Palindrome Checker."); //printing title to console
 
     let userString = prompt("Please enter a string to check if it is a palindrome: ");
     let stringReversed = reverseString(userString);
@@ -91,6 +94,7 @@ function checkPalindrome(userString, reversedString){
 //PROBLEM 3 - Incrementing Sequence
 
 function runIncrementingSequence(){
+    console.log("PROBLEM 3: Incrementing Sequence."); //printing title to console
     let userSequence = getUserArray();
     let sortedArray = sortArray(userSequence);
     let sequenceIncrementing = checkIncrement(sortedArray);
@@ -131,6 +135,7 @@ function checkIncrement(sortedArray){
 //Problem 4 - Positive and Negative Number Count
 
 function runPosAndNegCount(){
+    console.log("PROBLEM 4: Positive and Negative Number Count."); //printing title to console
     alert("Please enter positive and negative numbers into array.");
     let userArray = getUserArray();
     let countArray = countPosAndNeg(userArray);
@@ -167,6 +172,7 @@ function countPosAndNeg(userArray){
 
 
 function runLowestHighest(){
+    console.log("PROBLEM 5: String of Numbers, return lowest and highest."); //printing title to console
     let numString = prompt("Enter numbers separated by spaces: ");
     let numArray = parseArray(numString);
     let sortedNumArray = sortArray(numArray);       //function in previous problem
@@ -198,32 +204,59 @@ function getHighestAndLowestNums(sortedNumberArray){
 //PROBLEM 6 - Email Validation ****INCOMPLETE
 
 function runEmailValidation(){
+    console.log("PROBLEM 6: Email Validation."); //printing title to console
     let userEmail = prompt("Please enter your email: ");
-    let isValidEmail = true;
-    let separatedEmail = splitEmail(userEmail, isValidEmail);
+    let separatedEmail = splitString(userEmail, "@");
+    let isValidUsername = checkUsername(separatedEmail);
+    let separatedDomain = splitString(separatedEmail[1], ".");
+    let isValidDomain = checkDomain(separatedDomain);
+    emailIsValid(isValidUsername, isValidDomain, userEmail);
+
 }
 
-function splitEmail(email, isValidEmail){
-    if(email.includes("@")){    
-        let parsedEmail = email.split("@");
-        return parsedEmail;
-    }else{
-        isValidEmail = false;
 
+//splits email at given character
+function splitString(string, splitChar){
+    if(string.includes(splitChar)){    
+        let parsedString = string.split(splitChar);
+        return parsedString;
+    }else{
+        alert(`${string} does not contain ${splitChar}`);
     }
 }
 
 
-function checkEmail(sepEmail){
-
+//Checks Username Portion for validity
+function checkUsername(emailPieces){
+    if(emailPieces[0].length > 0){
+        return true;
+    }else{
+        return false;
+    }
 }
 
-function emailFalseSet(){
 
+//checks domain portion for validity
+function checkDomain(domainPieces){
+    if(domainPieces[0] > 0 && domainPieces[1] > 0){
+        return true;
+    }else{
+        return false;
+    }
 }
 
 
-//runEmailValidation();
+//Prints whether email is valid or invalid
+function emailIsValid(validUsername, validDomain, userEmail){
+    if(validUsername && validDomain){
+        console.log(`${userEmail} is a valid email.`);
+    }else{
+        console.log(`${userEmail} is an INVALID email.`);
+    }
+}
+
+
+runEmailValidation();
 
 
 
@@ -232,6 +265,7 @@ function emailFalseSet(){
 //PROBLEM 7 - Replace letters with numbers
 
 function runLetterToNumber(){
+    console.log("PROBLEM 7: Replace letters with numbers."); //printing title to console
     let userString = prompt("Please enter a string to encrypt: ").toLowerCase();
     let alphabetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "h", "k", 
                         "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", 
@@ -282,6 +316,7 @@ function runBriefcaseLock(){
 //Problem 10 - Reverse Reciprocal
 
 function runReverseReciprocal(){
+    console.log("PROBLEM 10: Reverse Reciprocal."); //printing title to console
     let enteredNum = prompt("Please enter a number to see reversed reciprocal: ");
     let reversedNum = reverseNumber(enteredNum);
     let reciprocal = getReciprocal(reversedNum);
@@ -301,12 +336,13 @@ function reverseNumber(userNum){
 }
 
 
-function getReciprocal(reversedNumber){
+//Gets reciprocal of number
+function getReciprocal(Number){
     let calculatedNum = 0; 
-    calculatedNum = 1 / parseInt(reversedNumber);
+    calculatedNum = 1 / parseInt(Number);
 
     return calculatedNum;
 }
 
-runReverseReciprocal();
+//runReverseReciprocal();
 
