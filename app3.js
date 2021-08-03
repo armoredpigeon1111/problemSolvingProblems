@@ -337,18 +337,13 @@ function crackLock(currentLock, targetLock){
             }else{
                 numOfTurns += downNum;
             }
-        }
-
-        
-    
+        }         
     }
-
-
 
     return numOfTurns;
 }
 
-runBriefcaseLock();
+//runBriefcaseLock();
 
 
 
