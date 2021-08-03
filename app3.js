@@ -189,4 +189,73 @@ function getHighestAndLowestNums(sortedNumberArray){
 }
 
 
-runLowestHighest();
+//runLowestHighest();
+
+
+
+
+
+//PROBLEM 6 - Email Validation ****INCOMPLETE
+
+function runEmailValidation(){
+    let userEmail = prompt("Please enter your email: ");
+    let isValidEmail = true;
+    let separatedEmail = splitEmail(userEmail, isValidEmail);
+}
+
+function splitEmail(email, isValidEmail){
+    if(email.includes("@")){    
+        let parsedEmail = email.split("@");
+        return parsedEmail;
+    }else{
+        isValidEmail = false;
+
+    }
+}
+
+
+function checkEmail(sepEmail){
+
+}
+
+function emailFalseSet(){
+
+}
+
+
+//runEmailValidation();
+
+
+
+
+
+//PROBLEM 7 - Replace letters with numbers
+
+function runLetterToNumber(){
+    let userString = prompt("Please enter a string to encrypt: ").toLowerCase();
+    let alphabetArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "h", "k", 
+                        "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", 
+                        "w", "x", "y", "z"];
+    let numberString = getLetterNum(userString, alphabetArray);
+    console.log(numberString);
+}
+
+function getLetterNum (enteredString, alphaArray){
+    let numString = "";
+    for(let i = 0; i < enteredString.length; i++){
+        if(enteredString[i] != " "){
+            for(let j = 0; j < alphaArray.length; j++){
+                if(enteredString[i] === alphaArray[j]){
+                    numString += (j + 1) + " ";
+                    break;
+                }
+            }
+        }
+    }
+
+    return numString;
+
+}
+
+
+runLetterToNumber();
