@@ -240,6 +240,8 @@ function runLetterToNumber(){
     console.log(numberString);
 }
 
+
+//Iterates to find indices of given letter in alphabet array
 function getLetterNum (enteredString, alphaArray){
     let numString = "";
     for(let i = 0; i < enteredString.length; i++){
@@ -258,4 +260,53 @@ function getLetterNum (enteredString, alphaArray){
 }
 
 
-runLetterToNumber();
+//runLetterToNumber();
+
+
+
+
+
+
+//PROBLEM 8 - briefcase lock ***INCOMPLETE
+
+function runBriefcaseLock(){
+    let currentLock = 3893;
+    let targetLock = 5296;
+
+}
+
+
+
+
+
+//Problem 10 - Reverse Reciprocal
+
+function runReverseReciprocal(){
+    let enteredNum = prompt("Please enter a number to see reversed reciprocal: ");
+    let reversedNum = reverseNumber(enteredNum);
+    let reciprocal = getReciprocal(reversedNum);
+    console.log(reciprocal);
+}
+
+
+//Reverses entered number
+function reverseNumber(userNum){
+    let num = "";
+
+    for(let i = userNum.length-1; i >= 0; i--){
+        num += userNum[i];
+        
+    }
+    return num;
+}
+
+
+function getReciprocal(reversedNumber){
+    let calculatedNum = 0; 
+    calculatedNum = 1 / parseInt(reversedNumber);
+
+    return calculatedNum;
+}
+
+runReverseReciprocal();
+
