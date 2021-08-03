@@ -11,10 +11,13 @@ function runLeapYearFinder(){
     let isCurrentlyLeapYear = checkLeapYear(currentYear);
     let leapYearsArray = [];
     if(isCurrentlyLeapYear){
-        leapYearsArray = calculateLeapYears(currentYear);
+        leapYearsArray = calculateLeapYears(currentYear, leapYearsArray);
         console.log(leapYearsArray);
     }else{
-        let nextLeapYear = getNextLeapYear(year);
+        let nextLeapYear = getNextLeapYear(currentYear);
+        leapYearsArray.push(nextLeapYear);
+        leapYearsArray = calculateLeapYears(nextLeapYear, leapYearsArray);
+        console.log(leapYearsArray);
     }
 }
 
@@ -33,14 +36,23 @@ function checkLeapYear(year){
     }
 }
 
-function calculateLeapYears(year){
+function calculateLeapYears(year, leapYearsArray){
     let leapYear = year;
-    let leapYearsArray = [];
 
     while(leapYearsArray.length < 20){
         leapYear += 4;
         leapYearsArray.push(leapYear);
     }
+
+    return leapYearsArray;
+}
+
+function getNextLeapYear(year){
+    while(year % 4 !== 0){
+        year++;
+    }
+
+    return year;
 }
 
 
