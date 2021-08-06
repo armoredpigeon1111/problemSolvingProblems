@@ -183,7 +183,7 @@ function removeDuplicates(nums){
 
 //PROBLEM 6 - Check for a and b separated by 3 places in string
 function runCheckAandB(){
-    let abString = prompt("Enter a string of characters to see if a and b are separated by 3 places: ");
+    let abString = prompt("Enter a string of characters to see if a and b are separated by 3 places: ").toLowerCase;
     let abBool = checkAB(abString);
     console.log(abBool);
 }
@@ -203,4 +203,40 @@ function checkAB(str){
     return isAB3;
 }
 
-runCheckAandB();
+//runCheckAandB();
+
+
+
+
+//PROBLEM 7 -check for equal numbers of p's and t's
+function runCheckForEqualPAndT(){
+    let userString = prompt("Enter a string to see if it has the same number of p's and t's: ").toLowerCase;
+    let sameNumOfPsAndTs = checkEqualPT(userString);
+    if(sameNumOfPsAndTs){
+        console.log("There are the same number of p's and t's.")
+    }else{
+        console.log("There are NOT the same number of p's and t's.")
+    }
+     
+}
+
+function checkEqualPT(str){
+    let pCount = 0;
+    let tCount = 0;
+
+    for(let i = 0; i < str.length; i++){
+        if(str[i] === "p"){
+            pCount++;
+        }else if(str[i] === "t"){
+            tCount++;
+        }
+    }
+
+    if(pCount === tCount){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+runCheckForEqualPAndT();
