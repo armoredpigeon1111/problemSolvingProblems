@@ -176,4 +176,31 @@ function removeDuplicates(nums){
     return uniqueNumbers;
 }
 
-runCheck3Numbers();
+//runCheck3Numbers();
+
+
+
+
+//PROBLEM 6 - Check for a and b separated by 3 places in string
+function runCheckAandB(){
+    let abString = prompt("Enter a string of characters to see if a and b are separated by 3 places: ");
+    let abBool = checkAB(abString);
+    console.log(abBool);
+}
+
+//Checks for a and b being spaced by 3 in string
+function checkAB(str){
+    let isAB3 = false;
+
+    for(let i = 0; i < str.length - 3; i++){
+        if(str[i] === "a" && str[i+4] === "b"){
+            isAB3 = true;
+        }else if(str[i] === "b" && str[i+4] === "a"){
+            isAB3 = true;
+        }
+    }
+
+    return isAB3;
+}
+
+runCheckAandB();
