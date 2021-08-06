@@ -60,7 +60,7 @@ function getNextLeapYear(year){
 
 
 
-//PROBLEM 2 - Longest Palindromic Substring
+//PROBLEM 2 - Longest Palindromic Substring INCOMPLETE
 
 function runLongestPalindromicSubstring(){
     let palindromString = "abcddcbarrrrr";
@@ -122,4 +122,58 @@ function getDifference(userNum){
 }
 
 
-runGetDifference13();
+//runGetDifference13();
+
+
+
+
+//PROBLEM 5 - Check 3 numbers for same right most digit
+function runCheck3Numbers(){
+    let numArray = getUserNumbers();
+    let matchingNums = getMatchingNums(numArray);
+    
+    if(matchingNums.length > 1){
+        console.log(matchingNums);
+    }else{
+        console.log("No numbers with matching ones places.");
+    }
+}
+
+
+//Gets numbers from user
+function getUserNumbers(){
+    let numbers = [];
+
+    for(let i = 0; i < 3; i++){
+        numbers.push(prompt("Please enter a positive integer: "));
+    }
+
+    return numbers;
+}
+
+
+//Finds numbers with matching ones places
+function getMatchingNums(numArray){
+    let numbers = [];
+
+    for(let i = 0; i < numArray.length -1; i++){
+        for(let j = i + 1; j < numArray.length; j++){
+            if(numArray[i] % 10 === numArray[j] % 10){
+                numbers.push(numArray[i]);
+                numbers.push(numArray[j]);
+            }
+        }
+    }
+
+    numbers = removeDuplicates(numbers);    
+
+    return numbers;
+}
+
+//Removes duplicate elements
+function removeDuplicates(nums){
+    let uniqueNumbers = [...new Set(nums)];
+    return uniqueNumbers;
+}
+
+runCheck3Numbers();
