@@ -56,4 +56,42 @@ function getNextLeapYear(year){
 }
 
 
-runLeapYearFinder();
+//runLeapYearFinder();
+
+
+
+//PROBLEM 2 - Longest Palindromic Substring
+
+function runLongestPalindromicSubstring(){
+    let palindromString = "abcddcbarrrrr";
+    let palindromSubstring = "";
+
+
+}
+
+
+//runLongestPalindromicSubstring();
+
+
+
+
+//PROBLEM 3 - Get hours and minutes from number
+
+function runGetHoursAndMinutes(){
+    let userNumber = prompt("Please enter a number to convert to hours and minutes: ");
+    let hours = 0;
+    let minutes = 0;
+
+    if(userNumber >= 60){
+        hours = Math.floor(userNumber / 60);
+        minutes = userNumber % 60;
+    }else{
+        minutes = userNumber;
+    }
+
+    console.log(`${userNumber} minutes is ${hours} hours and ${minutes} minutes.`)
+
+}
+
+runGetHoursAndMinutes();
+
