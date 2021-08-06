@@ -63,14 +63,54 @@ function getNextLeapYear(year){
 //PROBLEM 2 - Longest Palindromic Substring INCOMPLETE
 
 function runLongestPalindromicSubstring(){
-    let palindromString = "abcddcbarrrrr";
-    let palindromSubstring = "";
-
-
+    let palindromString = "abcddcba";
+    let palindromSubstring = checkStringForPalindrome(palindromString);
+    
+    console.log(palindromSubstring);
 }
 
 
-//runLongestPalindromicSubstring();
+function checkStringForPalindrome(str){
+    let longestPalindromSubstring = "";
+    let forwardString = str;
+    let backwardString = reverseString(str);
+
+ 
+    for(let i = 0; i < str.length; i++){
+        //figure out how to move to check first and second part of string for palindrome.
+
+    }
+
+    return longestPalindromSubstring;
+}
+
+
+//reverses string for comparison
+function reverseString(enteredString){
+    let reversedString = "";
+
+    for(let i = enteredString.length -1; i >= 0; i--){
+        reversedString += enteredString[i];
+    }
+
+    return reversedString;
+}
+
+//Checks if string is palindrome
+function checkPalindrome(userString, reversedString){
+    let isPalindrome = true;
+
+    for(let i = 0; i < userString.length; i++){
+        if(userString[i] != reversedString[i]){
+            isPalindrome = false;
+        }
+    }
+
+    return isPalindrome;
+
+}
+
+runLongestPalindromicSubstring();
 
 
 
@@ -239,4 +279,4 @@ function checkEqualPT(str){
     }
 }
 
-runCheckForEqualPAndT();
+//runCheckForEqualPAndT();
