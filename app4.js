@@ -72,13 +72,20 @@ function runLongestPalindromicSubstring(){
 
 function checkStringForPalindrome(str){
     let longestPalindromSubstring = "";
-    let forwardString = str;
-    let backwardString = reverseString(str);
+    let forwardString = "";
+    let backwardString = "";
 
  
     for(let i = 0; i < str.length; i++){
         //figure out how to move to check first and second part of string for palindrome.
+        forwardString = str.substring(i, str.length - i);
+        backwardString = reverseString(forwardString);
+        if(checkPalindrome(forwardString, backwardString)){
+            longestPalindromSubstring = forwardString;
+            break;
+        }else{
 
+        }
     }
 
     return longestPalindromSubstring;
