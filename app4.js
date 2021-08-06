@@ -93,5 +93,33 @@ function runGetHoursAndMinutes(){
 
 }
 
-runGetHoursAndMinutes();
+//runGetHoursAndMinutes();
 
+
+
+//PROBLEM 4 - Difference between number and 13
+
+function runGetDifference13(){
+    let userNumber = prompt("Enter a number: ");
+    let difference = getDifference(userNumber);
+    console.log(difference);
+}
+
+
+//Finds the difference between user number and 13 and gets twice the difference if it is greater than thirteen.
+function getDifference(userNum){
+    let difference = 0;
+
+    //if number is greater than 13 return twice the difference
+    if(userNum > 13){
+        difference = (userNum - 13) * 2;
+    }
+    else{
+        difference = 13 - userNum; 
+    }
+
+    return difference
+}
+
+
+runGetDifference13();
